@@ -1,0 +1,25 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="WEATHER">
+  <ion-content class="padding">
+
+  		<form name="myForm" novalidate>
+	        <div class="list">
+	            <label class="item item-input">
+	                <span class="input-label">CIUDAD</span>
+	                <input type="text" name="ciudad" ng-model="ciudad" ng-minlength="1" required>
+	            </label>
+	        </div>
+	        <div class="padding">
+	            <p ng-show="myForm.ciudad.$error.required">* Ingrese una ciudad</p>
+	        </div>
+	        <div class="padding">
+	            <a ng-href="/#/weather/{{ciudad}}"><button type="button" class="button button-block button-positive" ng-disabled="myForm.$invalid" >BUSCAR</button></a>
+	        </div>
+	    </form>
+  </ion-content>
+</ion-view>

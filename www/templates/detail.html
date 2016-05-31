@@ -1,0 +1,40 @@
+<ion-view view-title="DETALLES DEL CLIMA">
+  <ion-content>    
+    		<form name="myForm" novalidate>
+	        <div class="list">
+	            <label class="item item-input">
+	                <span class="input-label">CIUDAD</span>
+	                <input type="text" name="ciudad" ng-model="ciudad" ng-minlength="1" required>
+	            </label>
+	        </div>
+	        <div class="padding">
+	            <p ng-show="myForm.ciudad.$error.required">* Ingrese una ciudad</p>
+	        </div>
+	        <div class="padding">
+	            <a ng-href="/#/weather/{{ciudad}}"><button type="button" class="button button-block button-positive" ng-disabled="myForm.$invalid" >BUSCAR</button></a>
+	        </div>
+	    </form>
+	<div class="list list-input">   
+		<label class="item item-input">
+			<span class="input-label">NOMBRE</span>
+			<input type="text" value="{{weather.name}}" disabled="true" />
+		</label>   
+	   	<div class="item item-thumbnail-left">
+	   		<img src="{{getIconUrl(weather.weather[0].icon)}}"/>
+      		<h1>{{weather.weather[0].main}}</h1>
+      	</div>
+		<label class="item item-input">
+			<span class="input-label">TEMPERATURA</span>
+			<input type="text" value="{{weather.main.temp}}" disabled="true"/>
+		</label>
+		<label class="item item-input">
+			<span class="input-label">HUMEDAD</span>
+			<input type="text" value="{{weather.main.humidity}}%" disabled="true"/>
+		</label>
+		<label class="item item-input">
+			<span class="input-label">DESCRIPCIÓN</span>
+			<input type="text" value="{{weather.weather[0].description}}" disabled="true"/>
+		</label>
+  	</div>
+  </ion-content>
+</ion-view>
